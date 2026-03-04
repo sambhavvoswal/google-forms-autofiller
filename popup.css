@@ -1,0 +1,232 @@
+:root {
+    --bg-color: #0d1117;
+    --card-bg: #161b22;
+    --border-color: #30363d;
+    --text-primary: #e6edf3;
+    --text-secondary: #8b949e;
+    --input-bg: #0d1117;
+    --accent: #2f81f7;
+    --accent-hover: #388bfd;
+    --danger: #f85149;
+    --danger-hover: #da3633;
+    --success: #238636;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    width: 380px;
+    /* Slightly wider to fit two columns comfortably */
+}
+
+.container {
+    padding: 24px;
+    background: linear-gradient(145deg, var(--card-bg), var(--bg-color));
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.logo svg {
+    filter: drop-shadow(0 0 8px rgba(47, 129, 247, 0.5));
+}
+
+h1 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+    background: linear-gradient(to right, #2f81f7, #58a6ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.field-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    padding-right: 32px;
+    /* space for the trash icon */
+}
+
+.label-header {
+    flex: 1;
+}
+
+.value-header {
+    flex: 1;
+    margin-left: 8px;
+}
+
+.fields-container-scroll {
+    max-height: 250px;
+    overflow-y: auto;
+    margin-bottom: 12px;
+    /* Custom scrollbar for webkit */
+}
+
+.fields-container-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.fields-container-scroll::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+.fields-container-scroll::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+.fields-container-scroll::-webkit-scrollbar-thumb:hover {
+    background: #484f58;
+}
+
+.form-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+    align-items: center;
+    animation: slideUp 0.3s ease-out forwards;
+}
+
+.form-row input {
+    flex: 1;
+    min-width: 0;
+    /* allows squishing if necessary */
+    padding: 10px 12px;
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s ease;
+}
+
+.form-row input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(47, 129, 247, 0.2);
+}
+
+.form-row input::placeholder {
+    color: #484f58;
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.remove-btn:hover {
+    color: var(--danger);
+    background: rgba(248, 81, 73, 0.1);
+}
+
+.primary-btn,
+.secondary-btn {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.primary-btn {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    margin-top: 16px;
+    box-shadow: 0 4px 12px rgba(47, 129, 247, 0.2);
+}
+
+.primary-btn:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-1px);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: var(--text-primary);
+    border: 1px dashed var(--border-color);
+    margin-top: 4px;
+}
+
+.secondary-btn:hover {
+    border-color: var(--text-secondary);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.status-message {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--success);
+    margin-top: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: none;
+}
+
+.status-message.show {
+    opacity: 1;
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

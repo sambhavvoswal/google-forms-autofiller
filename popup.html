@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Config Autofill Fields</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12.3333L6.41 10.9233L10 14.1733L17.59 6.58333L19 8L10 17Z"
+                        fill="#3B82F6" />
+                </svg>
+                <h1>Forms AutoFiller</h1>
+            </div>
+            <p>Define custom fields to autofill.</p>
+        </header>
+
+        <form id="autofill-form">
+            <div class="field-header">
+                <span class="label-header">Question Label (e.g. "Email")</span>
+                <span class="value-header">Value to Fill</span>
+            </div>
+
+            <div class="fields-container-scroll" id="dynamic-fields-container">
+                <!-- Dynamic fields will be injected here -->
+            </div>
+
+            <button type="button" id="add-btn" class="secondary-btn">
+                <span>+ Add Field</span>
+            </button>
+
+            <div class="loader" id="loader"></div>
+            <div class="status-message" id="status-message">Saved successfully!</div>
+
+            <button type="submit" id="save-btn" class="primary-btn">
+                <span>Save All Fields</span>
+            </button>
+        </form>
+    </div>
+
+    <!-- template for a row -->
+    <template id="field-row-template">
+        <div class="form-row">
+            <input type="text" class="field-label" placeholder="e.g. Email" required>
+            <input type="text" class="field-value" placeholder="email@example.com" required>
+            <button type="button" class="remove-btn" title="Remove Field">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 4h-3.5l-1-1h-5l-1 1H5v2h14V4zM6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12z"
+                        fill="currentColor" />
+                </svg>
+            </button>
+        </div>
+    </template>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>
