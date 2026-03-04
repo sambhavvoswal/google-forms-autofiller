@@ -15,7 +15,7 @@ Since this extension isn't on the Chrome Web Store yet, you can run it locally:
 
 1. Clone or download this repository to your local machine.
    ```bash
-   git clone https://github.com/your-username/google-forms-autofiller.git
+   git clone https://github.com/sambhavvoswal/google-forms-autofiller.git
    ```
 2. Open Google Chrome.
 3. Navigate to `chrome://extensions/` in your address bar.
